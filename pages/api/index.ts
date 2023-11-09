@@ -62,7 +62,10 @@ export default async function handler(
 
 	console.log(dataArticle);
 
-	res.status(200).json({ message: 'John Doe' });
+	res.status(200).json({
+		...dataArticle,
+		link: `https://www.tabnews.com.br/${dataArticle.owner_username}/${dataArticle.slug}`,
+	});
 }
 
 function validObj(obj: object, requiredKeys: string[]): string | null {
